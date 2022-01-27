@@ -1,0 +1,12 @@
+
+#stick {
+
+    width: 100px;
+    height: 30px;
+    background-color:chocolate;
+    border: 2px solid black;
+    position:absolute;
+    left:42%;
+    bottom:5%;
+
+}
