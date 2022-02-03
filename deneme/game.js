@@ -55,26 +55,37 @@ const update=() =>{
     if(ball.x+ball.r>canvas.width || ball.x-ball.r<0){
         ball.velocityX=-ball.velocityX
     }
-}
 
-var stick=document.querySelector("div");
+   /* if(ball.x+ball.r<stick.x+50px || ball.x-ball.r>stick.x-50px )
+    {
+        ball.velocityY=-ball.velocityY
 
-window.onkeydown= function(olay){
-   var x= stick.offsetLeft;
-   var kod= olay.keyCode;
-   
-   if(kod ==37)
-   {
-       stick.style.left=(x-5) +"px";
-   }
+    }*/
 
 }
+
+
+window.onkeydown= function(klavye)
+{
+    var kutu=document.getElementById("stick");
+    if(klavye.keyCode==37)
+    {
+        kutu.style.left=(kutu.offsetLeft-10)+"px";
+    }
+
+    if(klavye.keyCode==39)
+    {
+        kutu.style.left=(kutu.offsetLeft +10)+"px";
+    }
+
+}
+
 
 
 const render= () =>{
 drawRect(0,0,canvas.width,canvas.height,'#E0E9D3')
 drawCircle(ball.x,ball.y,ball.r,ball.color)
-//drawRect(170,650,100,30,'#000')
+//drawRect(170,650,100,30,'#0e3f3f')
 drawText(player.score,canvas.width/4*3,100,'#000')
 //drawRect(300,50,150,40,"#fff")
 }
@@ -83,6 +94,7 @@ drawText(player.score,canvas.width/4*3,100,'#000')
 const game =() =>{
     update()
     render()
+    klavye()
 }
 
 const fps =50
